@@ -1,3 +1,8 @@
+import torch
+import omegaconf
+# This tells PyTorch it is safe to unpickle OmegaConf objects
+torch.serialization.add_safe_globals([omegaconf.dictconfig.DictConfig, omegaconf.listconfig.ListConfig])
+
 import warnings
 from shutil import copyfile
 import inspect
