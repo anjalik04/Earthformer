@@ -5,6 +5,7 @@ import omegaconf.base
 
 # Authorized globals for PyTorch 2.6+ security
 torch.serialization.add_safe_globals([
+    dict,
     typing.Any,
     omegaconf.dictconfig.DictConfig,
     omegaconf.listconfig.ListConfig,
