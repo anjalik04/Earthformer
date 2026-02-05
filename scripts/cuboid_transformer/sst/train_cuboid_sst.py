@@ -1,16 +1,23 @@
 import torch
 import typing
+import collections
 import omegaconf
 import omegaconf.base
 
-# Authorized globals for PyTorch 2.6+ security
+# Comprehensive list of trusted globals for Earthformer checkpoints
 torch.serialization.add_safe_globals([
-    dict,
+    dict, 
+    list, 
+    set,
+    collections.defaultdict,
+    collections.OrderedDict,
     typing.Any,
     omegaconf.dictconfig.DictConfig,
     omegaconf.listconfig.ListConfig,
     omegaconf.base.ContainerMetadata,
-    omegaconf.base.Metadata
+    omegaconf.base.Metadata,
+    omegaconf.nodes.AnyNode,
+    omegaconf.nodes.ScalarNode
 ])
 
 import warnings
