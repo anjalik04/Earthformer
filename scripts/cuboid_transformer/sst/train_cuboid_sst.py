@@ -1,10 +1,13 @@
 import torch
+import typing
 import omegaconf
 import omegaconf.base
-# Allow all necessary OmegaConf types to be unpickled safely
+
+# Authorized globals for PyTorch 2.6+ security
 torch.serialization.add_safe_globals([
-    omegaconf.dictconfig.DictConfig, 
-    omegaconf.listconfig.ListConfig, 
+    typing.Any,
+    omegaconf.dictconfig.DictConfig,
+    omegaconf.listconfig.ListConfig,
     omegaconf.base.ContainerMetadata,
     omegaconf.base.Metadata
 ])
